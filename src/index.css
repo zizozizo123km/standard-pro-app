@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 
+  Custom styles for a professional Facebook application clone. 
+  Focus on typography, colors, and smooth transitions.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 100%; /* White */
+    --foreground: 222.2 47.4% 11.2%; /* Dark Blue/Black */
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 47.4% 11.2%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 47.4% 11.2%;
+
+    --primary: 214.3 98% 30.6%; /* Facebook Blue (Similar to HSL 214.3 98% 30.6% or #1877F2) */
+    --primary-foreground: 210 20% 98%; /* Light off-white */
+
+    --secondary: 210 40% 96.1%; /* Light Gray for backgrounds/secondary buttons */
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%; /* Lightest gray for input/hover states */
+    --muted-foreground: 215.4 16.3% 46.9%; /* Muted text */
+
+    --accent: 210 40% 96.1%; /* Used for hovers or subtle highlighting */
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%; /* Red for errors/destructive actions */
+    --destructive-foreground: 210 20% 98%;
+
+    --border: 214.3 31.8% 91.4%; /* Light border gray */
+    --input: 214.3 31.8% 91.4%;
+    --ring: 214.3 98% 30.6%; /* Primary color for focus rings */
+
+    --radius: 0.5rem; /* Standard border radius */
+  }
+
+  /* Dark Mode equivalent (Optional, but good practice) */
+  .dark {
+    --background: 222.2 84% 4.9%; /* Very dark background */
+    --foreground: 210 40% 98%; /* White/off-white text */
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 214.3 98% 50.6%; /* Slightly lighter Facebook blue for visibility */
+    --primary-foreground: 210 20% 98%;
+
+    --secondary: 217.2 32.4% 15.6%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.4% 15.6%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.4% 15.6%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.4% 20%;
+    --input: 217.2 32.4% 20%;
+    --ring: 214.3 98% 50.6%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    /* Apply default FB-like light gray background to body */
+    @apply bg-gray-100 text-foreground antialiased min-h-screen;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+/* 
+  Custom Components/Utilities for Facebook look and feel 
+*/
+
+@layer components {
+  /* Standard Facebook Feed Card */
+  .fb-card {
+    @apply bg-white shadow-sm rounded-lg p-4 transition-shadow duration-200;
+  }
+  
+  /* Input fields (often slightly rounded, light background) */
+  .fb-input {
+    @apply flex h-10 w-full rounded-full border border-input bg-gray-50 px-4 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  /* Primary Button (Facebook Blue) */
+  .fb-btn-primary {
+    @apply inline-flex items-center justify-center rounded-lg text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2;
+  }
+  
+  /* Secondary Button (Light Gray/Muted) */
+  .fb-btn-secondary {
+    @apply inline-flex items-center justify-center rounded-lg text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none bg-secondary text-secondary-foreground hover:bg-secondary/80 h-10 px-4 py-2;
+  }
+
+  /* Icon Button (Circular, typically hover effect) */
+  .fb-icon-button {
+    @apply flex items-center justify-center h-10 w-10 rounded-full text-foreground hover:bg-gray-200 transition-colors duration-150;
+  }
+
+  /* Scrollbar Customization (Optional, for aesthetics) */
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .scrollbar-hidden::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .scrollbar-hidden {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  /* Custom Scrollbar for better UX (Standard appearance) */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #babac0;
+    border-radius: 4px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+}
